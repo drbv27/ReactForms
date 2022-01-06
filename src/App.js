@@ -3,6 +3,7 @@ const App = () => {
   const [value, setValue] = useState({
     normal: "valor por defecto",
     texto: "",
+    select: "",
   });
   const handleChange = (e) => {
     console.log(e.target.name);
@@ -24,6 +25,12 @@ const App = () => {
         onChange={handleChange}
       />
       <textarea name="texto" value={value.texto} onChange={handleChange} />
+      <select value={value.select} name="select" onChange={handleChange}>
+        <option value="">-- Seleccione --</option>
+        <option value="orion">Orion enojado</option>
+        <option value="tristan">Tristan meloso</option>
+        <option value="guido">Guido canson</option>
+      </select>
     </div>
   );
 };
