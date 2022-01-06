@@ -5,6 +5,7 @@ const App = () => {
     texto: "",
     select: "",
     check: false,
+    estado: "orion",
   });
   //Hago un destructuring de target v....para ahorrarme colocar e.
   const handleChange = ({ target }) => {
@@ -40,6 +41,42 @@ const App = () => {
         onChange={handleChange}
         checked={value.checked}
       />
+      {/*       <div onChange={handleChange}>
+        <label>Mascota</label>
+        <input type="radio" value="orion" name="estado" />
+        Orion
+        <input type="radio" value="tristan" name="estado" />
+        Tristan
+        <input type="radio" value="guido" name="estado" />
+        Guido
+      </div> */}
+      <div>
+        <label>Mascota</label>
+        <input
+          onChange={handleChange}
+          type="radio"
+          value="orion"
+          name="estado"
+          checked={value.estado === "orion"}
+        />
+        Orion
+        <input
+          onChange={handleChange}
+          type="radio"
+          value="tristan"
+          name="estado"
+          checked={value.estado === "tristan"}
+        />
+        Tristan
+        <input
+          onChange={handleChange}
+          type="radio"
+          value="guido"
+          name="estado"
+          checked={value.estado === "guido"}
+        />
+        Guido
+      </div>
     </div>
   );
 };
