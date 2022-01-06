@@ -4,14 +4,16 @@ const App = () => {
     normal: "valor por defecto",
     texto: "",
     select: "",
+    check: false,
   });
-  const handleChange = (e) => {
-    console.log(e.target.name);
+  //Hago un destructuring de target v....para ahorrarme colocar e.
+  const handleChange = ({ target }) => {
+    console.log(target.value, target.checked);
     /* setValue({ ...value, [e.target.name]: e.target.value }); */
     setValue((state) => ({
       //state es el mismo value...lo colocamos asi para que no choquen los nombres
       ...state,
-      [e.target.name]: e.target.value,
+      [target.name]: target.type === "checkbox" ? target.checked : target.value,
     }));
   };
   console.log(value);
@@ -31,6 +33,13 @@ const App = () => {
         <option value="tristan">Tristan meloso</option>
         <option value="guido">Guido canson</option>
       </select>
+
+      <input
+        type="checkbox"
+        name="check"
+        onChange={handleChange}
+        checked={value.checked}
+      />
     </div>
   );
 };
